@@ -10,21 +10,25 @@ namespace COMP213_S2016_Lesson3
      * This class defines a generic person
      * 
      * @class person
-     * @field _name {string}
+     * @field {string} _name 
+     * @feild {int} _age
      */
-   public class Person
+    public class Person
     {
         //PRIVATE INSTANCE VARIABLES +++++++++++++++++++++++++
-       private string _name;
+        private string _name;
+        private int _age;
 
         // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++
 
-            /**
-             * this is property for our _name field
-             * 
-             * @property {string} Name
-             */
-        
+        /**
+         * <summary>
+         * this is property for our private _name field
+         * </summary>
+         * 
+         * @property {string} Name
+         */
+
         public string Name
         {
             get
@@ -34,9 +38,32 @@ namespace COMP213_S2016_Lesson3
 
             set
             {
+
                 this._name = value;
-            } 
+            }
         }
+        // CONSTRUCRORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        /**
+         * <summary 
+         * This is a public property for our private _age feild
+         * </summary>
+         * 
+         * @property {int} Age
+         */
+        public int Age
+        {
+            get
+            {
+                return this._age;
+            }
+            set
+            {
+                this._age = value;
+            }
+
+        }
+
         /**
          * This is a default empty constructor for the person class
          * 
@@ -47,7 +74,9 @@ namespace COMP213_S2016_Lesson3
 
         public Person()
         {
+            //Initilize public properties
             this.Name = "Unknown name";
+            this.Age = 0;
         }
 
         /**
@@ -60,7 +89,53 @@ namespace COMP213_S2016_Lesson3
 
         public Person(string name)
         {
-            this.Name = "Unknown name";
+            this.Name = name;
+            this.Age = 0;
+        }
+
+        /**
+         * <summary>
+         * This is a constructor that takes age as paramater and passes
+         * it to the _age private instance variable
+         * </summary
+         * 
+         *
+         */
+        public Person(int age)
+        {
+            this.Name = "unknown name!";
+            this.Age = age;
+        }
+
+        /**<summary>
+         *This is a constructor that takes both name and age as paramaters,
+         *It assigns the local name valur to the Name property
+         * It assigns the local age valur to the Age property
+         * </summary>
+         * 
+         * @constructor Person
+         * 
+         */
+        public Person(string name, int age)
+        {
+            this.Name = name;
+            this.Age = age;
+        }
+        public void _sayHello()
+        {
+            Console.WriteLine(this.Name + " Says hello!");
+        }
+
+        /**
+         * 
+         * This method outputs the _name and _age values in the following
+         * format: _name + "is" +_age + "years old".
+         * 
+         * @method ShowAge
+         */
+        public void ShowAge()
+        {
+            Console.WriteLine(this.Name + " is " + this.Age + " years old");
         }
     }
 }
